@@ -4,7 +4,7 @@ Tags: Slideshow, Pictures, Media, Media Library, Automatic, Widget, Shortcode
 Requires at least: 3.8
 Tested up to: 3.8
 Stable tag: 1.0
-Description: Creates an automatic web-based slideshow that randomly cycles through all of your site's image content. Includes a slideshow page and a widget and shortcode embed.
+Description: Creates an automatic web-based slideshow that randomly cycles through all of your site's images. Includes a slideshow page, widget, and shortcode.
 License: GPLv2
 
 == Description ==
@@ -56,8 +56,8 @@ The shortcode version supports all four parameters that the full URL version sup
 
 == Screenshots ==
 1. Full-screen mode.
-2. Widget, in the Twenty Fourteen theme.
-3. Shortcode, in the Twenty Fourteen theme.
+2. Shortcode, in the Twenty Fourteen theme.
+3. Widget, in the Twenty Fourteen theme.
 
 == Changelog ==
 = 1.0 =
