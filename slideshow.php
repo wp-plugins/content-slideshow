@@ -116,8 +116,8 @@ $delay = ( array_key_exists( 'delay', $_GET ) ? absint( $_GET['delay'] ) : 3 );
 	elseif( $image->posts[0]->post_content ) { // description field
 		echo '<figcaption>' . $image->posts[0]->post_content . '</figcaption>';
 	}
-	elseif($image->posts[0]->title) { // title field
-		echo '<figcaption>' . $image->posts[0]->title . '</figcaption>';
+	elseif($image->posts[0]->post_title) { // title field
+		echo '<figcaption>' . $image->posts[0]->post_title . '</figcaption>';
 	}
 ?>
 </figure>
