@@ -48,6 +48,8 @@ $delay = ( array_key_exists( 'delay', $_GET ) ? absint( $_GET['delay'] ) : 3 );
 		img.portrait { height: 100%; }
 		img.landscape { width: 100%; }
 		figcaption { font-family: sans-serif; font-size: 28px; font-weight: normal; font-style: normal; position: absolute; bottom: 0; text-align: center; width: 100%; padding: 12px 15%; margin: 0; background: rgba(0,0,0,.5); color: #fff; text-shadow: 1px 1px 1px #000; }
+		@-ms-viewport { width: device-width; }
+		@viewport { width: device-width; }
 		@media screen and (max-width: 1024px) { figcaption { font-size: 22px; } }
 		@media screen and (max-width: 600px) { figcaption { font-size: 16px; } }
 		@media screen and (max-width: 400px) { figcaption { font-size: 12px; } }
@@ -86,22 +88,26 @@ $delay = ( array_key_exists( 'delay', $_GET ) ? absint( $_GET['delay'] ) : 3 );
 		exit;
 	}
 
+	$id = $image->posts[0]->ID;
+
 	// image
 	$sizes = array( 'thumbnail', 'medium', 'large', 'full' );
 	if( in_array( $size, $sizes ) ) {
-		$img = wp_get_attachment_image_src( $image->posts[0]->ID, $size );
+		$img = wp_get_attachment_image_src( $id, $size );
 	}
 	// auto handling
 	elseif( wp_is_mobile() ) {
-		$img = wp_get_attachment_image_src( $image->posts[0]->ID, 'medium' );
+		$img = wp_get_attachment_image_src( $id, 'medium' );
 	}
 	else {
-		$img = wp_get_attachment_image_src( $image->posts[0]->ID, 'large' );
+		$img = wp_get_attachment_image_src( $id, 'large' );
 	}
 
 	$orientation = ( $img[1] > $img[2] ? 'landscape' : 'portrait' );
 
+	echo '<a href="' . get_attachment_link($id) . '" target="_blank">';
 	echo '<img src="' . $img[0] . '" class="' . $orientation . '" id="main" onload="load()">';
+	echo '</a>';
 
 	// caption
 	if( $image->posts[0]->post_excerpt ) { // caption field
