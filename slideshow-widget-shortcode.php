@@ -25,7 +25,7 @@ function content_slideshow_do_shortcode( $atts ){
 class Content_Slideshow_Widget extends WP_Widget {
 	/* Constructor */
 	function Content_Slideshow_Widget() {
-		parent::WP_Widget( 'Content_Slideshow_Widget', $name = 'Content Slideshow' );
+		parent::WP_Widget( 'Content_Slideshow_Widget', $name = __( 'Content Slideshow', 'content-slideshow' ) );
 	}
 
 	/* This is the Widget */
@@ -76,11 +76,11 @@ class Content_Slideshow_Widget extends WP_Widget {
 
 		// The widget form. ?>
 		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><?php echo __( 'Title:' ); ?></label>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php echo __( 'Title:', 'content-slideshow' ); ?></label>
 			<input id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" class="widefat" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('size'); ?>"><?php echo __( 'Image Size:' ); ?></label>
+			<label for="<?php echo $this->get_field_id('size'); ?>"><?php echo __( 'Image Size:', 'content-slideshow' ); ?></label>
 			<select name="<?php echo $this->get_field_name('size'); ?>" id="<?php echo $this->get_field_id('size'); ?>" class="widefat">
 				<option value="thumbnail" <?php if( $size == 'thumbnail' ) { echo 'selected="selected"'; } ?>>Thumbnail</option>
 				<option value="medium" <?php if( $size == 'medium' ) { echo 'selected="selected"'; } ?>>Medium</option>
@@ -88,7 +88,7 @@ class Content_Slideshow_Widget extends WP_Widget {
 				<option value="full" <?php if( $size == 'full' ) { echo 'selected="selected"'; } ?>>Full</option>
 			</select>
 		<p>
-			<label for="<?php echo $this->get_field_id('delay'); ?>"><?php echo __( 'Delay:' ); ?></label>
+			<label for="<?php echo $this->get_field_id('delay'); ?>"><?php echo __( 'Delay:', 'content-slideshow' ); ?></label>
 			<input id="<?php echo $this->get_field_id('delay'); ?>" name="<?php echo $this->get_field_name('delay'); ?>" type="number" value="<?php echo $delay; ?>" />
 		</p>
 	<?php 

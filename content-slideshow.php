@@ -8,6 +8,7 @@
  * Author URI: http://celloexpressions.com/
  * Tags: Slideshow, Pictures, Media, Media Library, Automatic, Widget, Shortcode
  * License: GPL
+ * Text Domain: content-slideshow
 
 =====================================================================================
 Copyright (C) 2014 Nick Halsey

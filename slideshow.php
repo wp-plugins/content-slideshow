@@ -35,7 +35,7 @@ $delay = ( array_key_exists( 'delay', $_GET ) ? absint( $_GET['delay'] ) : 3 );
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-	<title>Slideshow :: <?php bloginfo( 'title' ); ?></title>
+	<title><?php printf( __( 'Slideshow :: %s', 'content-slideshow' ), get_bloginfo( 'title' ) ); ?></title>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width" />
 	<style type="text/css">
@@ -82,7 +82,7 @@ $delay = ( array_key_exists( 'delay', $_GET ) ? absint( $_GET['delay'] ) : 3 );
 	$image = new WP_Query( $query_image_args );
 	
 	if ( ! $image->have_posts() ) {
-		echo '<h1>Sorry, there are no images to display here.</h1></figure></body></html>';
+		echo '<h1>' . __( 'Sorry, there are no images to display here.', 'content-slideshow' ) . '</h1></figure></body></html>';
 		exit;
 	}
 
