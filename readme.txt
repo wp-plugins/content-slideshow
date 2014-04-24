@@ -3,7 +3,7 @@ Contributors: celloexpressions
 Tags: Slideshow, Pictures, Media, Media Library, Automatic, Widget, Shortcode
 Requires at least: 3.8
 Tested up to: 3.9
-Stable tag: 1.0
+Stable tag: 1.1
 Description: Creates an automatic web-based slideshow that randomly cycles through all of your site's images. Includes a slideshow page, widget, and shortcode.
 License: GPLv2
 
@@ -12,7 +12,7 @@ This plugin creates a fullscreen slideshow that displays randomly-selected pictu
 
 Once activated, you can view the slideshow by visiting `http://yourdomain.com/slideshow`. All JPEG images will be displayed (since .jpg is best for pictures, while .png and .gif are typically used for graphics).
 
-Please note that it is not possible to pause the slideshow or go back; the slideshow is not designed for personal viewing.
+Please note that it is not possible to pause the slideshow or go back; the slideshow is not designed for personal viewing. However, clicking/tapping on the image will open its attachment page in a new tab, allowing images to be contextualized or edited easily.
 
 The slideshow can also be embedded into your site via a widget or a shortcode.
 
@@ -20,11 +20,11 @@ You can control some options by adjusting the url of the slideshow. Parameters a
 
 * `size` is the size of the image to load, either `thumbnail` (discouraged), `medium`, `large`, `full`, or `auto`, which uses medium or large depending on `wp_is_mobile()`.
 * `year` is the 4-digit numeric year in which the images were published.
-* `month` is the numeric month in which the images were published (between 1 and 12), typically used in conjunction with `year`.
+* `month` is the numeric month in which the images were published (between 1 and 12), typically but not necessarily used in conjunction with `year`.
 * `delay` is the length of time to display each image, in seconds (it will be slightly longer in practice, while the next image is loaded).
 
 Using all options, for example:
-http://example.com/slideshow?size=full&year=2014&month=1&delay=1
+http://example.com/slideshow?size=full&year=2014&month=4&delay=1
 
 You can see it in action <a href="http://uscasce.com/slideshow">here</a>.
 
@@ -60,10 +60,19 @@ The shortcode version supports all four parameters that the full URL version sup
 3. Widget, in the Twenty Fourteen theme.
 
 == Changelog ==
+= 1.1 =
+* Link images in slideshow to their attachment pages.
+* Fix display of attachment titles as fallback captions.
+* Fix viewport in IE10+ in Windows 8 mode.
+* Confirm WordPress 3.9 compatibility.
+
 = 1.0 =
 * First publicly available version of the plugin.
 * Tested with WordPress 3.8.
 
 == Upgrade Notice ==
+= 1.1 =
+* Link images to attachment pages, minor bugfixes.
+
 = 1.0 =
 * Public release on WordPress.org.
