@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Content Slideshow
  * Plugin URI: http://celloexpressions.com/plugins/content-slideshow
- * Description: Creates an automatic web-based slideshow that randomly cycles through all of your site's image content. Includes a slideshow page and a widget and shortcode embed.
- * Version: 1.0
+ * Description: Creates an automatic slideshow that randomly cycles through all of your site's image content. Includes full-screen, widget, and shortcode versions.
+ * Version: 1.1
  * Author: Nick Halsey
  * Author URI: http://celloexpressions.com/
  * Tags: Slideshow, Pictures, Media, Media Library, Automatic, Widget, Shortcode
