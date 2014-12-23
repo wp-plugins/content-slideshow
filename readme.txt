@@ -2,7 +2,7 @@
 Contributors: celloexpressions
 Tags: Slideshow, Pictures, Media, Media Library, Automatic, Widget, Shortcode
 Requires at least: 3.8
-Tested up to: 3.9
+Tested up to: 4.1
 Stable tag: 1.1
 Description: Creates an automatic web-based slideshow that randomly cycles through all of your site's images. Includes a slideshow page, widget, and shortcode.
 License: GPLv2
