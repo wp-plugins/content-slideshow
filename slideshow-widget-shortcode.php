@@ -24,8 +24,8 @@ function content_slideshow_do_shortcode( $atts ){
 
 class Content_Slideshow_Widget extends WP_Widget {
 	/* Constructor */
-	function Content_Slideshow_Widget() {
-		parent::WP_Widget( 'Content_Slideshow_Widget', $name = __( 'Content Slideshow', 'content-slideshow' ) );
+	function __construct() {
+		parent::__construct( 'Content_Slideshow_Widget', $name = __( 'Content Slideshow', 'content-slideshow' ) );
 	}
 
 	/* This is the Widget */
