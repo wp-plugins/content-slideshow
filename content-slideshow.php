@@ -11,7 +11,7 @@
  * Text Domain: content-slideshow
 
 =====================================================================================
-Copyright (C) 2014 Nick Halsey
+Copyright (C) 2015 Nick Halsey
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -40,7 +40,7 @@ function content_slideshow_template_redirect() {
 		content_slideshow_takeover_page();
 	}
 }
-add_action('template_redirect', 'content_slideshow_template_redirect');
+add_action( 'template_redirect', 'content_slideshow_template_redirect' );
 
 function content_slideshow_takeover_page() {
 	global $wp_query;
@@ -50,9 +50,9 @@ function content_slideshow_takeover_page() {
 		$wp_query->is_404 = false;
 		$wp_query->is_archive = true;
 		// Change the header to 200 OK.
-		header("HTTP/1.1 200 OK");
+		header( "HTTP/1.1 200 OK" );
 	}
-	
+
 	// Load slideshow page.
 	include( 'slideshow.php' );
 
