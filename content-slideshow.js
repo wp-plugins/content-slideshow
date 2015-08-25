@@ -12,6 +12,7 @@ var cs = {};
 		template : {},
 		container : {},
 		t : 0,
+		reloop : false,
 		init : function() {
 			cs.allData = contentSlideshowData;
 			cs.width = window.innerWidth;
@@ -26,13 +27,23 @@ var cs = {};
 		},
 
 		nextImage : function() {
-			if ( cs.currentId < cs.allData.length ) {
+			if ( cs.currentId < cs.allData.length - 1 ) {
 				cs.currentId = cs.currentId + 1;
 			} else {
-				cs.currentId = 0;
+				if ( 500 === cs.allData.length ) {
+					location.reload(); // There may be more than 500 images in the collection, so reload from PHP to get a new batch.
+				} else {
+					var fig2 = document.getElementById( 'figure-' + cs.allData[cs.currentId - 1].id );
+					fig2.style.top = '100%';
+					fig2.style.opacity = '0';
+					cs.currentId = 0;
+					cs.reloop = true;
+				}
 			}
-			var figure = cs.template( cs.allData[cs.currentId] );
-			cs.container.append( figure );
+			if ( ! cs.reloop ) {
+				var figure = cs.template( cs.allData[cs.currentId] );
+				cs.container.append( figure );
+			}
 			cs.showPrevImage();
 		},
 
