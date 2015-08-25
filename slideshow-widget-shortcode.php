@@ -16,10 +16,9 @@ function content_slideshow_do_shortcode( $atts ){
 		'size'  => 'auto',
 		'year'  => '',
 		'month' => '',
-		'delay' => 5,
 	), $atts ) );
 
-	return content_slideshow_get_embed( $size, $year, $month, $delay );
+	return content_slideshow_get_embed( $size, $year, $month );
 }
 
 class Content_Slideshow_Widget extends WP_Widget {
@@ -36,7 +35,6 @@ class Content_Slideshow_Widget extends WP_Widget {
 		// Widget options
 		$title = apply_filters('widget_title', $instance['title'] ); // Title
 		$size  = ( in_array( $instance['size'], array( 'thumbnail', 'medium', 'large', 'full' ) ) ? $instance['size'] : 'medium' );
-		$delay = absint( $instance['delay'] );
 
 		// Output
 		echo $before_widget;
@@ -45,7 +43,7 @@ class Content_Slideshow_Widget extends WP_Widget {
 			echo $before_title . $title . $after_title;
 		}
 
-		echo content_slideshow_get_embed( $size, '', '', $delay );
+		echo content_slideshow_get_embed( $size, '', '' );
 
 		echo $after_widget;
 	}
@@ -55,7 +53,6 @@ class Content_Slideshow_Widget extends WP_Widget {
 		$instance    = $old_instance;
 		$instance['title']  = strip_tags( $new_instance['title'] );
 		$instance['size'] = ( in_array( $new_instance['size'], array( 'thumbnail', 'medium', 'large', 'full' ) ) ? $new_instance['size'] : 'medium' );
-		$instance['delay'] = absint( $new_instance['delay'] );
 
 		return $instance;
 	}
@@ -65,13 +62,11 @@ class Content_Slideshow_Widget extends WP_Widget {
 	    if ( $instance ) {
 			$title = $instance['title'];
 			$size  = $instance['size'];
-			$delay = $instance['delay'];
 	    }
 		else {
 		    // These are the defaults.
 			$title = '';
 			$size = 'medium';
-			$delay = 5;
 	    }
 
 		// The widget form. ?>
@@ -87,22 +82,18 @@ class Content_Slideshow_Widget extends WP_Widget {
 				<option value="large" <?php if( $size == 'large' ) { echo 'selected="selected"'; } ?>>Large</option>
 				<option value="full" <?php if( $size == 'full' ) { echo 'selected="selected"'; } ?>>Full</option>
 			</select>
-		<p>
-			<label for="<?php echo $this->get_field_id('delay'); ?>"><?php echo __( 'Delay:', 'content-slideshow' ); ?></label>
-			<input id="<?php echo $this->get_field_id('delay'); ?>" name="<?php echo $this->get_field_name('delay'); ?>" type="number" value="<?php echo $delay; ?>" />
 		</p>
 	<?php 
 	}
 
 } // class Content_Slideshow_Widget
 
-function content_slideshow_get_embed( $size = 'auto', $year = '', $month = '', $delay = 3 ) {
+function content_slideshow_get_embed( $size = 'auto', $year = '', $month = '' ) {
 	$url = '/slideshow';
 	$args = array(
 		'size'  => $size,
 		'year'  => $year,
 		'month' => $month,
-		'delay' => $delay,
 	);
 	$url = add_query_arg( $args, $url );
 
