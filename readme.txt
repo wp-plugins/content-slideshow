@@ -2,8 +2,8 @@
 Contributors: celloexpressions
 Tags: Slideshow, Pictures, Media, Media Library, Automatic, Widget, Shortcode
 Requires at least: 3.8
-Tested up to: 4.1
-Stable tag: 1.1
+Tested up to: 4.3
+Stable tag: 2.0
 Description: Creates an automatic web-based slideshow that randomly cycles through all of your site's images. Includes a slideshow page, widget, and shortcode.
 License: GPLv2
 
@@ -12,7 +12,7 @@ This plugin creates a fullscreen slideshow that displays randomly-selected pictu
 
 Once activated, you can view the slideshow by visiting `http://yourdomain.com/slideshow`. All JPEG images will be displayed (since .jpg is best for pictures, while .png and .gif are typically used for graphics).
 
-Please note that it is not possible to pause the slideshow or go back; the slideshow is not designed for personal viewing. However, clicking/tapping on the image will open its attachment page in a new tab, allowing images to be contextualized or edited easily.
+Please note that it is not currently possible to pause the slideshow or go back; the slideshow is not designed for personal viewing. However, clicking/tapping on the image will open its attachment page in a new tab, allowing images to be contextualized or edited easily.
 
 The slideshow can also be embedded into your site via a widget or a shortcode.
 
@@ -21,10 +21,9 @@ You can control some options by adjusting the url of the slideshow. Parameters a
 * `size` is the size of the image to load, either `thumbnail` (discouraged), `medium`, `large`, `full`, or `auto`, which uses medium or large depending on `wp_is_mobile()`.
 * `year` is the 4-digit numeric year in which the images were published.
 * `month` is the numeric month in which the images were published (between 1 and 12), typically but not necessarily used in conjunction with `year`.
-* `delay` is the length of time to display each image, in seconds (it will be slightly longer in practice, while the next image is loaded).
 
 Using all options, for example:
-http://example.com/slideshow?size=full&year=2014&month=4&delay=1
+http://example.com/slideshow?size=full&year=2014&month=4
 
 You can see it in action <a href="http://uscasce.com/slideshow">here</a>.
 
@@ -32,7 +31,7 @@ You can see it in action <a href="http://uscasce.com/slideshow">here</a>.
 1. Take the easy route and install through the WordPress plugin adder OR
 1. Download the .zip file and upload the unzipped folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Go to `http://yourdomain.com/slideshow` to see the slideshow in action. Add a widget version from Appearance->Widgets or add the [content_slideshow] shortcode to a post or page.
+1. Go to `http://yourdomain.com/slideshow` to see the slideshow in action. Add a widget version from the Widgets section in the Customizer or add the [content_slideshow] shortcode to a post or page.
 
 == Frequently Asked Questions ==
 = Where's the settings page? =
@@ -52,7 +51,7 @@ The plugin supports `year` and `month` parameters that can be used to only show 
 
 = Using the Shortcode =
 The shortcode version supports all four parameters that the full URL version supports, as attributes:
-`[content_slideshow size="medium" year="2014" month="1" delay="5"]`
+`[content_slideshow size="medium" year="2014" month="1"]`
 
 == Screenshots ==
 1. Full-screen mode.
@@ -60,6 +59,12 @@ The shortcode version supports all four parameters that the full URL version sup
 3. Widget, in the Twenty Fourteen theme.
 
 == Changelog ==
+= 2.0 =
+* The slideshow is not JavaScript-driven. Images should load faster with smoother transitions between them, but the initial load time will be slower. The slideshow page will reload itself much less often now.
+* The delay query arg has been removed.
+* Fix WordPress 4.3 compatibility.
+* Add translations.
+
 = 1.1 =
 * Link images in slideshow to their attachment pages.
 * Fix display of attachment titles as fallback captions.
@@ -71,6 +76,9 @@ The shortcode version supports all four parameters that the full URL version sup
 * Tested with WordPress 3.8.
 
 == Upgrade Notice ==
+= 2.0 =
+* Refactored to load more smoothly and efficiently.
+
 = 1.1 =
 * Link images to attachment pages, minor bugfixes.
 
