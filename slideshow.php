@@ -44,8 +44,8 @@ $month = ( array_key_exists( 'month', $_GET ) ? absint( $_GET['month'] ) : false
 		body { margin: 0; padding: 0; overflow: hidden; color: #fff; font-family: sans-serif; }
 		figure { width: 100%; height: 100%; margin: 0; padding: 0; text-align: center; vertical-align: middle; position: fixed; left: 0; top: 100%; opacity: .1; background: #222; }
 		img { width: auto; height: auto; margin: auto; }
-		img.portrait { width: 100%; }
-		img.landscape { height: 100%; }
+		img.landscape { width: 100%; }
+		img.portrait { height: 100%; }
 		figcaption { font-family: sans-serif; font-size: 28px; font-weight: normal; font-style: normal; position: absolute; bottom: 0; text-align: center; width: 100%; padding: 12px 15%; margin: 0; background: rgba(0,0,0,.5); color: #fff; text-shadow: 1px 1px 1px #000; }
 		@-ms-viewport { width: device-width; }
 		@viewport { width: device-width; }
